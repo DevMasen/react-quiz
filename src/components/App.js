@@ -10,6 +10,8 @@ const initialState = {
 	// status: loading, error, ready, active, finished
 	status: 'loading',
 	index: 0,
+	answer: null,
+	points: 0,
 };
 function reducer(state, action) {
 	switch (action.type) {
@@ -29,13 +31,23 @@ function reducer(state, action) {
 				...state,
 				status: 'active',
 			};
+		case 'newAnswer':
+			const question = state.questions.at(state.index);
+			return {
+				...state,
+				answer: action.payload,
+				points:
+					question.correctOption === action.payload
+						? state.points + question.points
+						: state.points,
+			};
 		default:
 			return new Error('Unknown Action!');
 	}
 }
 
 export default function App() {
-	const [{ questions, status, index }, dispatch] = useReducer(
+	const [{ questions, status, index, answer }, dispatch] = useReducer(
 		reducer,
 		initialState,
 	);
@@ -68,7 +80,11 @@ export default function App() {
 					/>
 				)}
 				{status === 'active' && (
-					<Question question={questions[index]} />
+					<Question
+						question={questions[index]}
+						answer={answer}
+						dispatch={dispatch}
+					/>
 				)}
 			</Main>
 		</div>
