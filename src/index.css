@@ -3,8 +3,8 @@
 	--color-dark: #495057;
 	--color-medium: #ced4da;
 	--color-light: #f1f3f5;
-	--color-theme: #01e564;
-	--color-accent: #cb0606;
+	--color-theme: #00ab4a;
+	--color-accent: #9b0101;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Codystar&display=swap');
@@ -42,7 +42,7 @@ body {
 
 .app-header {
 	width: 66rem;
-	margin-bottom: 4rem;
+	margin-bottom: 1rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -149,7 +149,7 @@ progress {
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;
-	margin-bottom: 3.2rem;
+	margin-bottom: 2rem;
 }
 
 .btn-option {
