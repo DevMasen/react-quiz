@@ -1,8 +1,5 @@
-import { useQuiz } from '../context/QuizContex';
-
-function FinishScreen() {
-	const { points, maxPossiblePoints, highscore, dispatch } = useQuiz();
-	const percentage = (points / maxPossiblePoints) * 100;
+function FinishScreen({ points, maxPossibelPoints, highscore, dispatch }) {
+	const percentage = (points / maxPossibelPoints) * 100;
 	let imogi;
 	if (percentage === 100) imogi = '🥇';
 	if (percentage > 80 && percentage < 100) imogi = '🎉';
@@ -14,7 +11,7 @@ function FinishScreen() {
 			<p className="result">
 				{imogi}
 				You Scored <strong>{points}</strong> out of{' '}
-				<strong>{maxPossiblePoints}</strong> ({Math.ceil(percentage)}%)
+				<strong>{maxPossibelPoints}</strong> ({Math.ceil(percentage)}%)
 			</p>
 			<p className="highscore">( Highscore: {highscore} points )</p>
 
